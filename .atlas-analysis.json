@@ -1,0 +1,111 @@
+{
+  "projectType": "saas",
+  "projectName": "SkinTrack",
+  "projectDescription": "A web application for cosmetology practices to manage patient records, clinical sessions, and staff access with role-based security.",
+  "theme": "almond",
+  "primaryColor": "#7C5C8A",
+  "lightColor": "#F3EEF7",
+  "darkColor": "#3D2B4A",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Overview",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "quickstart", "environment-setup"]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/architecture",
+              "concepts/authentication",
+              "concepts/data-model"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Patient Management",
+            "pages": [
+              "features/patients/overview",
+              "features/patients/creating-patients",
+              "features/patients/searching-patients"
+            ]
+          },
+          {
+            "group": "Clinical Sessions",
+            "pages": [
+              "features/clinical-sessions/overview",
+              "features/clinical-sessions/creating-sessions",
+              "features/clinical-sessions/autosave-and-completion"
+            ]
+          },
+          {
+            "group": "User Management",
+            "pages": [
+              "features/users/overview",
+              "features/users/invitations",
+              "features/users/roles"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Development",
+        "groups": [
+          {
+            "group": "Database",
+            "pages": [
+              "development/database/schema",
+              "development/database/migrations",
+              "development/database/rls-policies"
+            ]
+          },
+          {
+            "group": "Testing",
+            "pages": [
+              "development/testing/unit-tests",
+              "development/testing/e2e-tests"
+            ]
+          },
+          {
+            "group": "Deployment",
+            "pages": [
+              "development/deployment/vercel",
+              "development/deployment/environment-variables"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Private staff authentication with invite-only onboarding",
+    "Patient records with strict ownership via Row Level Security",
+    "Clinical session drafts with autosave functionality",
+    "Superadmin user management and invitation flow",
+    "Session expiry warning UI",
+    "Google OAuth and email/password support",
+    "Next.js App Router with React Server Components",
+    "PostgreSQL with RLS policies via Supabase"
+  ],
+  "publicApiSurface": [
+    "POST /login — staff authentication",
+    "GET /auth/callback — OAuth callback handler",
+    "GET /patients — list and search patients",
+    "GET /patients/[patientId] — patient detail view",
+    "POST /patients/[patientId]/sessions/new — create clinical session draft",
+    "GET /patients/[patientId]/sessions/[sessionId] — view/edit session",
+    "GET /admin/users — superadmin user management",
+    "GET /profile — user profile management",
+    "Server Action: createPatient",
+    "Server Action: updatePatient",
+    "Server Action: createSessionDraft",
+    "Server Action: completeSession",
+    "Server Action: inviteUser"
+  ]
+}
